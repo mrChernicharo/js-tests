@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 20px;
+        height: 20px;
+        background: red;
+        position: absolute;
+      }
+      .quadro {
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid green;
+      }
+      #quadrado {
+        width: 20px;
+        height: 20px;
+        background: blue;
+      }
+
+      .closed {
+        width: 20px;
+        animation: animateClose 2s;
+      }
+      .grow {
+        height: 200px;
+        animation: animateGrow 2s;
+      }
+      .shrink {
+        height: 20px;
+        animation: animateShrink 2s;
+      }
+      .open {
+        width: 300px;
+        animation: animateOpen 2s;
+      }
+
+      @keyframes animateOpen {
+        0% {
+          width: 20px;
+        }
+        100% {
+          width: 300px;
+        }
+      }
+      @keyframes animateClose {
+        0% {
+          /* background: yellow; */
+          width: 300px;
+        }
+        100% {
+          /* background: red; */
+          width: 20px;
+        }
+      }
+
+      @keyframes animateGrow {
+        0% {
+          height: 20px;
+        }
+        100% {
+          height: 200px;
+        }
+      }
+      @keyframes animateShrink {
+        0% {
+          height: 200px;
+        }
+        100% {
+          height: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Teste</h1>
+    <p>Bora lá</p>
+
+    <button onclick="playAnimation()">Play</button>
+    <button onclick="playBack()">Play Back</button>
+    <!-- <button onclick="playAnimation2()">Play 2</button> -->
+    <button onclick="stopAnimation()">Stop</button>
+    <input type="number" value="100" oninput="changeInput()" id="mr-input" />
+    <!-- <button onclick="stopAnimation2()">Stop 2</button> -->
+    <div class="box1"></div>
+    <div class="quadro">
+      <div id="quadrado"></div>
+    </div>
+
+    <!-- <script src="questao01.js"></script> -->
+    <!-- <script src="promises.js"></script> -->
+    <!-- <script src="keyframes01.js"></script> -->
+    <!-- <script src="requestanimation01.js"></script> -->
+    <!-- <script src="requestanimation02.js"></script> -->
+    <!-- <script src="requestanimation03.js"></script> -->
+    <script src="timeout2.js"></script>
+  </body>
+</html>
