@@ -7,7 +7,7 @@
 // }
 
 ////
-const initial = { tracks: 2, bars: 2, beats: 2, notes: 4 };
+const initial = { tracks: 1, bars: 2, beats: 4, notes: 5 };
 
 const dummy = Array(initial.tracks).fill({
   track: 0,
@@ -43,12 +43,16 @@ function updateStateTracks(state) {
 
         beat.notes.forEach((note, n) => {
           const position =
-            B * (beat.notes.length + bar.beats.length) * (b + 1) + (n + 1);
+            n +
+            1 +
+            b * beat.notes.length +
+            B * beat.notes.length * bar.beats.length;
+          const idString = `pos-${position}-note-${n + 1}-beat-${b + 1}-bar-${
+            B + 1
+          }-track-${t + 1}`;
 
           tracksCopy[t].bars[B].beats[b].notes.push({
-            id: `pos-${position}-note-${n + 1}-beat-${b + 1}-bar-${
-              B + 1
-            }-track-${t + 1}`,
+            id: idString,
             pos: position,
             note: n + 1,
             beat: b + 1,
@@ -56,11 +60,19 @@ function updateStateTracks(state) {
             track: t + 1,
             play: false,
           });
+
+          // *** pra conferir no browser ***
+
+          // const newBox = (document
+          //   .querySelector(".box1")
+          //   .cloneNode({ deep: true }).textContent = `{ ${idString} }, \n`);
+          // document.body.append(newBox);
         });
       });
     });
   });
   console.log(tracksCopy);
+
   return { ...state, tracks: [...tracksCopy] };
 }
 
@@ -75,11 +87,11 @@ console.log(newState.tracks[0].bars[0].beats[1].notes[0]);
 console.log(newState.tracks[0].bars[0].beats[1].notes[1]);
 console.log(newState.tracks[0].bars[0].beats[1].notes[2]);
 console.log(newState.tracks[0].bars[0].beats[1].notes[3]);
-console.log(newState.tracks[0].bars[1].beats[0].notes[0]);
-console.log(newState.tracks[0].bars[1].beats[0].notes[1]);
-console.log(newState.tracks[0].bars[1].beats[0].notes[2]);
-console.log(newState.tracks[0].bars[1].beats[0].notes[3]);
-console.log(newState.tracks[0].bars[1].beats[1].notes[0]);
-console.log(newState.tracks[0].bars[1].beats[1].notes[1]);
-console.log(newState.tracks[0].bars[1].beats[1].notes[2]);
-console.log(newState.tracks[0].bars[1].beats[1].notes[3]);
+// console.log(newState.tracks[0].bars[1].beats[0].notes[0]);
+// console.log(newState.tracks[0].bars[1].beats[0].notes[1]);
+// console.log(newState.tracks[0].bars[1].beats[0].notes[2]);
+// console.log(newState.tracks[0].bars[1].beats[0].notes[3]);
+// console.log(newState.tracks[0].bars[1].beats[1].notes[0]);
+// console.log(newState.tracks[0].bars[1].beats[1].notes[1]);
+// console.log(newState.tracks[0].bars[1].beats[1].notes[2]);
+// console.log(newState.tracks[0].bars[1].beats[1].notes[3]);
