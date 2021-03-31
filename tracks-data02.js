@@ -63,10 +63,10 @@ function updateStateTracks(state) {
 
           // *** pra conferir no browser ***
 
-          // const newBox = (document
-          //   .querySelector(".box1")
-          //   .cloneNode({ deep: true }).textContent = `{ ${idString} }, \n`);
-          // document.body.append(newBox);
+          const newBox = (document
+            .querySelector(".box1")
+            .cloneNode({ deep: true }).textContent = `{ ${idString} }, \n`);
+          document.body.append(newBox);
         });
       });
     });
